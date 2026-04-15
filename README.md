@@ -13,7 +13,9 @@
 
 ## 🌟 Overview
 
-**MorphFit** is designed for those who want more than just numbers. It focuses on **Physical Evolution**—visualizing your transformation through time with "Ghost Camera" overlays and precise session tracking. Built with a sleek, high-tech dark interface, MorphFit ensures your data stays your own with secure local storage.
+**MorphFit** MorphFit is designed for those who want more than just numbers. It focuses on Physical Evolution—visualizing your transformation through time with 'Ghost Camera' overlays and precise session tracking. Built with a sleek, high-tech dark interface, MorphFit ensures your data stays yours with secure local storage.
+
+**Note: MorphFit is currently under active development. I recognize that there are still some bugs in the system, and I am committed to continuous improvements for optimal performance.**
 
 ## 🚀 Key Features
 
