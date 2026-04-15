@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MORPHFIT | Kinetic Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#24252d",
+                    "surface-tint": "#f3ffca",
+                    "on-tertiary-container": "#ffffff",
+                    "on-tertiary-fixed": "#1c0055",
+                    "on-primary-container": "#4a5e00",
+                    "on-secondary-container": "#e8fbff",
+                    "surface-container-high": "#1e1f26",
+                    "on-surface": "#f7f5fd",
+                    "on-tertiary-fixed-variant": "#4000ad",
+                    "on-error": "#450900",
+                    "secondary-dim": "#00d4ec",
+                    "tertiary-fixed": "#b8a3ff",
+                    "inverse-on-surface": "#54545b",
+                    "on-primary-fixed": "#3a4a00",
+                    "error-dim": "#d53d18",
+                    "surface-container-highest": "#24252d",
+                    "tertiary": "#a68cff",
+                    "surface-dim": "#0d0e13",
+                    "outline-variant": "#47474e",
+                    "primary-fixed-dim": "#beee00",
+                    "surface-container-lowest": "#000000",
+                    "tertiary-container": "#7c4dff",
+                    "error": "#ff7351",
+                    "background": "#0d0e13",
+                    "primary-fixed": "#cafd00",
+                    "surface-container-low": "#121319",
+                    "secondary": "#00e3fd",
+                    "on-primary-fixed-variant": "#526900",
+                    "on-background": "#f7f5fd",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "secondary-fixed": "#26e6ff",
+                    "tertiary-fixed-dim": "#ab93ff",
+                    "on-secondary": "#004d57",
+                    "surface": "#0d0e13",
+                    "outline": "#75757b",
+                    "on-tertiary": "#25006b",
+                    "inverse-surface": "#faf8ff",
+                    "primary-container": "#cafd00",
+                    "on-surface-variant": "#abaab1",
+                    "error-container": "#b92902",
+                    "on-secondary-fixed-variant": "#005964",
+                    "inverse-primary": "#516700",
+                    "surface-container": "#181920",
+                    "surface-bright": "#2a2c34",
+                    "primary": "#f3ffca",
+                    "secondary-container": "#006875",
+                    "on-secondary-fixed": "#003a42",
+                    "primary-dim": "#beee00",
+                    "tertiary-dim": "#7e51ff",
+                    "on-primary": "#516700",
+                    "on-error-container": "#ffd2c8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #f3ffca 0%, #cafd00 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 31, 38, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- Privacy HUD (Custom Component) -->
+<div class="sticky top-0 z-[60] bg-surface-container-lowest h-10 flex items-center justify-center px-6">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_#00e3fd]"></span>
+</span>
+<span class="font-label text-[10px] font-bold tracking-[0.2em] text-secondary">LOCAL VAULT ACTIVE</span>
+<span class="mx-3 h-3 w-[1px] bg-outline-variant/30"></span>
+<span class="font-label text-[10px] font-bold tracking-[0.2em] text-on-surface-variant">ALL DATA STORED LOCALLY</span>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-[#0d0e13] dark:bg-[#0d0e13] flex justify-between items-center w-full px-6 h-20 sticky top-10 z-50">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="close-up portrait of a determined athletic woman with dramatic lighting in a dark gym environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSl7Mai5pQqXWx8V7ySuSQjt3QB5JwOVUmInMNTLK1a5o9d0hIJz7SrDZCHT3GCunhYTembiFFJ7WpggC5BuuD8qOozxLeexE7b4_HrnXvZdhwPqqxDYG8JmfgZlyycPPJUEUWijaAt7QkZt_7GzI7K4rqwlKJtZBCIaK18HG1DbYECL5z4CAU4lsJ45VSA13q8dD9fqYE2C_GLL175B69i3e2aoBJHmNNlw8SojMDjsPbZhLfPJIWmfVydsUgsXRB9D1bBOcPUz0"/>
+</div>
+<h1 class="text-2xl font-black text-[#f3ffca] tracking-widest italic font-['Space_Grotesk']">MORPHFIT</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[#f3ffca] hover:bg-[#1e1f26] transition-colors p-2 rounded-xl">security</button>
+</div>
+</header>
+<main class="pb-32 px-6 pt-4 max-w-7xl mx-auto">
+<!-- Daily Goal Hero Section (Asymmetric Layout) -->
+<section class="mb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-7">
+<span class="font-label text-xs tracking-[0.3em] text-primary uppercase font-bold mb-4 block">Current Protocol</span>
+<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
+                    PEAK <br/> <span class="text-surface-variant italic stroke-text" style="-webkit-text-stroke: 1px #f3ffca; color: transparent;">EVOLUTION</span>
+</h2>
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden group">
+<div class="flex justify-between items-end mb-6">
+<div>
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mb-1">Daily Target</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-5xl font-bold text-primary">84</span>
+<span class="font-label text-sm text-on-surface-variant font-medium">%</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mb-1">Volume</p>
+<p class="font-headline text-xl font-bold">12,450 KG</p>
+</div>
+</div>
+<!-- Neon Lime Progress Bar -->
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient w-[84%] shadow-[0_0_15px_rgba(243,255,202,0.3)]"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 hidden lg:block">
+<div class="aspect-square bg-surface-container-high rounded-3xl overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-60" data-alt="monochrome professional photography of a muscular athlete lifting a heavy barbell with chalk dust in the air and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZwaB8O2784lx9WK33hTLeZmFGDCJqBovuWITTh08XrI0bTnlsOgQ43YVR1UR2zpFbJqJa0L1mo5KVH6Jn4fVzxpsKqn4l5JFm4dJ8NwXBe07tKKg7WqD-PmZ_AL-J8zVtO8FwQpp7j1LF7WxYzzlwMrnFT-pLRJyn_9xM9QC5R3_H9AhncDkqX5hmoL0JiMzOcPNJ5DcErlULTccwUATyGwFCa2m7mSykf3ElOjsCk-NoaH-ERFm2BHAdl3kPs2tV4c0mPQPgnMV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<p class="font-label text-xs tracking-widest text-secondary font-bold uppercase mb-2">System Status</p>
+<p class="font-headline text-2xl font-bold max-w-[200px]">ENCRYPTED LOCAL STORAGE ACTIVE</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Big 6 Section (Bento Grid) -->
+<section class="mb-12">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-3xl font-bold tracking-tight">The Big 6</h3>
+<div class="h-[1px] flex-grow mx-6 bg-outline-variant/20"></div>
+<span class="font-label text-xs tracking-widest text-on-surface-variant">6 EXERCISES TOTAL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Squat -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px]">fitness_center</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">event_seat</span>
+</span>
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant font-bold border border-outline-variant/30 px-2 py-1 rounded">COMPOUND</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2">Back Squat</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">High-intensity lower body anchor. Focus on depth and explosive drive.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">PR RECORD</p>
+<p class="font-headline text-xl font-bold">140<span class="text-xs ml-1 opacity-50">KG</span></p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2: Deadlift -->
+<div class="group bg-surface-container-high rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer border border-primary/20">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px] text-primary">power</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-primary text-on-primary">
+<span class="material-symbols-outlined">expand</span>
+</span>
+<span class="font-label text-[10px] tracking-widest text-primary font-bold border border-primary/30 px-2 py-1 rounded bg-primary/5">ACTIVE PROTOCOL</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2 text-primary">Deadlift</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">The ultimate measure of raw strength. Neutral spine focus.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-primary uppercase tracking-widest">NEXT TARGET</p>
+<p class="font-headline text-xl font-bold">185<span class="text-xs ml-1 opacity-50">KG</span></p>
+</div>
+<span class="material-symbols-outlined text-primary">play_circle</span>
+</div>
+</div>
+<!-- Card 3: Bench Press -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-surface-container-highest text-on-surface">
+<span class="material-symbols-outlined">horizontal_rule</span>
+</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2">Bench Press</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Primary push movement for upper body hypertrophy and power.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">VOLUME</p>
+<p class="font-headline text-xl font-bold">3,200<span class="text-xs ml-1 opacity-50">KG</span></p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4: Overhead Press -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-surface-container-highest text-on-surface">
+<span class="material-symbols-outlined">vertical_align_top</span>
+</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2">Overhead Press</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Vertical push dominance. Kinetic chain stability required.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">PR RECORD</p>
+<p class="font-headline text-xl font-bold">65<span class="text-xs ml-1 opacity-50">KG</span></p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 5: Row -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-surface-container-highest text-on-surface">
+<span class="material-symbols-outlined">reorder</span>
+</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2">Barbell Row</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Horizontal pull foundation for a bulletproof posterior chain.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">VOLUME</p>
+<p class="font-headline text-xl font-bold">2,850<span class="text-xs ml-1 opacity-50">KG</span></p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 6: Pull-up -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between aspect-[4/3] cursor-pointer">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="h-10 w-10 flex items-center justify-center rounded-xl bg-surface-container-highest text-on-surface">
+<span class="material-symbols-outlined">upload</span>
+</span>
+</div>
+<h4 class="font-headline text-2xl font-bold mb-2">Pull-ups</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Bodyweight vertical pull mastery. Weighted variations tracked.</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">MAX REPS</p>
+<p class="font-headline text-xl font-bold">22<span class="text-xs ml-1 opacity-50">CT</span></p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy Section (Milled/Sunken Look) -->
+<section class="mt-20 p-12 bg-surface-container-lowest rounded-[40px] border border-outline-variant/10 text-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Zero-Cloud Architecture</h4>
+<p class="text-on-surface-variant max-w-xl mx-auto mb-8 font-body text-lg leading-relaxed">
+                MorphFit operates exclusively on your device hardware. Your biometric data, workout logs, and PRs are encrypted and stored in your <strong>Local Vault</strong>. No servers, no tracking, total privacy.
+            </p>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="bg-surface-container-low px-6 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="font-label text-[10px] tracking-widest font-bold uppercase">100% Offline Capable</span>
+</div>
+<div class="bg-surface-container-low px-6 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="font-label text-[10px] tracking-widest font-bold uppercase">AES-256 Encryption</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-[#0d0e13]/70 backdrop-blur-3xl">
+<a class="flex flex-col items-center justify-center bg-[#f3ffca] text-[#3a4a00] rounded-xl px-5 py-2 scale-105 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Workout</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Progress</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Settings</span>
+</a>
+</nav>
+<!-- Contextual FAB (Suppressed on Home according to shell rule, but provided if needed) -->
+<button class="fixed bottom-24 right-6 h-16 w-16 kinetic-gradient text-on-primary rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

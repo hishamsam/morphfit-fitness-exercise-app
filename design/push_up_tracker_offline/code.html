@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MORPHFIT | Workout Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#24252d",
+                    "surface-tint": "#f3ffca",
+                    "on-tertiary-container": "#ffffff",
+                    "on-tertiary-fixed": "#1c0055",
+                    "on-primary-container": "#4a5e00",
+                    "on-secondary-container": "#e8fbff",
+                    "surface-container-high": "#1e1f26",
+                    "on-surface": "#f7f5fd",
+                    "on-tertiary-fixed-variant": "#4000ad",
+                    "on-error": "#450900",
+                    "secondary-dim": "#00d4ec",
+                    "tertiary-fixed": "#b8a3ff",
+                    "inverse-on-surface": "#54545b",
+                    "on-primary-fixed": "#3a4a00",
+                    "error-dim": "#d53d18",
+                    "surface-container-highest": "#24252d",
+                    "tertiary": "#a68cff",
+                    "surface-dim": "#0d0e13",
+                    "outline-variant": "#47474e",
+                    "primary-fixed-dim": "#beee00",
+                    "surface-container-lowest": "#000000",
+                    "tertiary-container": "#7c4dff",
+                    "error": "#ff7351",
+                    "background": "#0d0e13",
+                    "primary-fixed": "#cafd00",
+                    "surface-container-low": "#121319",
+                    "secondary": "#00e3fd",
+                    "on-primary-fixed-variant": "#526900",
+                    "on-background": "#f7f5fd",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "secondary-fixed": "#26e6ff",
+                    "tertiary-fixed-dim": "#ab93ff",
+                    "on-secondary": "#004d57",
+                    "surface": "#0d0e13",
+                    "outline": "#75757b",
+                    "on-tertiary": "#25006b",
+                    "inverse-surface": "#faf8ff",
+                    "primary-container": "#cafd00",
+                    "on-surface-variant": "#abaab1",
+                    "error-container": "#b92902",
+                    "on-secondary-fixed-variant": "#005964",
+                    "inverse-primary": "#516700",
+                    "surface-container": "#181920",
+                    "surface-bright": "#2a2c34",
+                    "primary": "#f3ffca",
+                    "secondary-container": "#006875",
+                    "on-secondary-fixed": "#003a42",
+                    "primary-dim": "#beee00",
+                    "tertiary-dim": "#7e51ff",
+                    "on-primary": "#516700",
+                    "on-error-container": "#ffd2c8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #f3ffca 0%, #cafd00 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(18, 19, 25, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .etched-depth {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- Privacy HUD (Top Status) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-12 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_#00e3fd]"></span>
+</span>
+<span class="font-label text-[10px] tracking-widest text-secondary font-bold">LOCAL VAULT ACTIVE</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">offline_pin</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">encrypted</span>
+</div>
+</header>
+<!-- Top Navigation Anchor -->
+<nav class="flex justify-between items-center w-full px-6 h-20 mt-12 bg-[#0d0e13] dark:bg-[#0d0e13]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Athletic man in high-tech gym gear, dramatic low key lighting, cinematic portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARu-xaiyApMMjsqb62SPgpu5ERLonzVoS5qmEbS_uYH6rEAZ8n3LI0rVheoLm6bv967WM_m3JM7ld-y51huO6kzcC62Do8nX6oV08mgaCtGWJQqCl5EzW-ycSYSfqZ6WD0Cg0HLTfaaAYDWgFTVBkyYbrzCy9sQLRdPH3wwyA3GRvMaibBJxWC8WWQzLXl-MvIgIiLNPnKl-phI8CXu_S02fTHBvnveeHLjpvZvV-t0ENVa82R1_DU-mEt5pi2G0PfqcEC6f93e4Sq"/>
+</div>
+<span class="font-['Space_Grotesk'] font-bold tracking-tighter text-2xl font-black text-[#f3ffca] tracking-widest italic">MORPHFIT</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#1e1f26] transition-colors text-[#f3ffca] active:scale-95 duration-150">
+<span class="material-symbols-outlined">security</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-[calc(100vh-160px)] px-6 pb-32 flex flex-col items-center">
+<!-- Header Info -->
+<div class="w-full mt-4 mb-8">
+<span class="font-label text-primary tracking-[0.2em] text-xs uppercase font-bold">Session: Push-up Alpha</span>
+<h1 class="font-headline text-4xl font-bold tracking-tighter mt-1">VOLT KINETIC</h1>
+</div>
+<!-- Asymmetric Bento Grid for Metrics -->
+<div class="w-full grid grid-cols-4 gap-3 mb-8">
+<!-- Central Display: Reps -->
+<div class="col-span-4 bg-surface-container-low rounded-3xl p-10 flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Background Decorative Text -->
+<div class="absolute -right-4 -bottom-4 font-headline text-[120px] font-black text-white/5 pointer-events-none select-none">REPS</div>
+<span class="font-label text-primary text-xs tracking-widest uppercase font-black opacity-50 mb-2">Total Count</span>
+<div class="flex items-baseline">
+<span class="font-headline text-9xl font-bold tracking-tighter text-on-surface">32</span>
+</div>
+<!-- Intensity Pulse Indicator -->
+<div class="mt-8 flex items-center gap-4 bg-surface-container-high/50 rounded-full px-6 py-2 border border-outline-variant/10">
+<div class="flex gap-1">
+<div class="w-1 h-3 rounded-full bg-primary"></div>
+<div class="w-1 h-3 rounded-full bg-primary"></div>
+<div class="w-1 h-3 rounded-full bg-primary"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/30"></div>
+<div class="w-1 h-3 rounded-full bg-outline-variant/30"></div>
+</div>
+<span class="font-body text-[10px] font-bold tracking-widest text-on-surface-variant">INTENSITY: HIGH</span>
+</div>
+</div>
+<!-- Metric: Calories (Local) -->
+<div class="col-span-2 bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between border-l-2 border-primary/20">
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant uppercase font-bold">Burned (Kcal)</span>
+<div class="flex items-baseline gap-2 mt-4">
+<span class="font-headline text-3xl font-bold text-on-surface">148</span>
+<span class="font-label text-xs text-primary/60 font-bold">CAL</span>
+</div>
+</div>
+<!-- Metric: Session Time -->
+<div class="col-span-2 bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between border-l-2 border-secondary/20">
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant uppercase font-bold">Elapsed</span>
+<div class="flex items-baseline gap-2 mt-4 text-secondary">
+<span class="font-headline text-3xl font-bold">12:44</span>
+<span class="font-label text-[10px] font-bold opacity-60">MIN</span>
+</div>
+</div>
+<!-- Detailed Instruction (Editorial Style) -->
+<div class="col-span-4 bg-surface-container-high/40 rounded-3xl p-6 mt-4 relative border border-outline-variant/5">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim">info</span>
+<div>
+<p class="font-body text-sm leading-relaxed text-on-surface-variant">
+                            Maintain a <span class="text-primary font-bold">plank position</span>. Focus on the eccentric phase of the movement. Your vault is currently syncing 128-bit encrypted training data to local storage.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Module -->
+<div class="w-full flex flex-col gap-4 mt-auto">
+<button class="kinetic-gradient h-20 w-full rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl">pause</span>
+<span class="font-headline font-bold text-xl uppercase tracking-widest text-on-primary-fixed">Pause Training</span>
+</button>
+<button class="h-16 w-full rounded-2xl bg-surface-container-high border border-error-container/20 flex items-center justify-center gap-3 hover:bg-error-container/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-error text-xl" style="font-variation-settings: 'FILL' 1;">stop_circle</span>
+<span class="font-headline font-bold text-on-surface tracking-widest uppercase text-sm">End Session</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-[#0d0e13]/70 backdrop-blur-3xl border-t border-[#24252d]/15">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Home</span>
+</a>
+<!-- Workout (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#f3ffca] text-[#3a4a00] rounded-xl px-5 py-2 scale-105 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Workout</span>
+</a>
+<!-- Progress -->
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Progress</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-[#f7f5fd] opacity-50 px-5 py-2 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] text-[10px] font-medium uppercase tracking-widest mt-1">Settings</span>
+</a>
+</footer>
+<!-- Background Decoration -->
+<div class="fixed top-1/4 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -left-24 w-64 h-64 bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+</body></html>

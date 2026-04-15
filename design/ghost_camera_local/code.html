@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#24252d",
+                        "surface-tint": "#f3ffca",
+                        "on-tertiary-container": "#ffffff",
+                        "on-tertiary-fixed": "#1c0055",
+                        "on-primary-container": "#4a5e00",
+                        "on-secondary-container": "#e8fbff",
+                        "surface-container-high": "#1e1f26",
+                        "on-surface": "#f7f5fd",
+                        "on-tertiary-fixed-variant": "#4000ad",
+                        "on-error": "#450900",
+                        "secondary-dim": "#00d4ec",
+                        "tertiary-fixed": "#b8a3ff",
+                        "inverse-on-surface": "#54545b",
+                        "on-primary-fixed": "#3a4a00",
+                        "error-dim": "#d53d18",
+                        "surface-container-highest": "#24252d",
+                        "tertiary": "#a68cff",
+                        "surface-dim": "#0d0e13",
+                        "outline-variant": "#47474e",
+                        "primary-fixed-dim": "#beee00",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-container": "#7c4dff",
+                        "error": "#ff7351",
+                        "background": "#0d0e13",
+                        "primary-fixed": "#cafd00",
+                        "surface-container-low": "#121319",
+                        "secondary": "#00e3fd",
+                        "on-primary-fixed-variant": "#526900",
+                        "on-background": "#f7f5fd",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "secondary-fixed": "#26e6ff",
+                        "tertiary-fixed-dim": "#ab93ff",
+                        "on-secondary": "#004d57",
+                        "surface": "#0d0e13",
+                        "outline": "#75757b",
+                        "on-tertiary": "#25006b",
+                        "inverse-surface": "#faf8ff",
+                        "primary-container": "#cafd00",
+                        "on-surface-variant": "#abaab1",
+                        "error-container": "#b92902",
+                        "on-secondary-fixed-variant": "#005964",
+                        "inverse-primary": "#516700",
+                        "surface-container": "#181920",
+                        "surface-bright": "#2a2c34",
+                        "primary": "#f3ffca",
+                        "secondary-container": "#006875",
+                        "on-secondary-fixed": "#003a42",
+                        "primary-dim": "#beee00",
+                        "tertiary-dim": "#7e51ff",
+                        "on-primary": "#516700",
+                        "on-error-container": "#ffd2c8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #f3ffca 0%, #cafd00 100%);
+        }
+        .viewfinder-grid {
+            background-size: 33.33% 33.33%;
+            background-image: 
+                linear-gradient(to right, rgba(243, 255, 202, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(243, 255, 202, 0.1) 1px, transparent 1px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body select-none overflow-hidden h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-[#0d0e13] text-[#f3ffca] flex justify-between items-center w-full px-6 h-20 z-50">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-high text-primary hover:bg-[#1e1f26] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="font-headline font-bold tracking-tighter text-2xl italic">MORPHFIT</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-full flex items-center gap-2 border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(0,227,253,0.8)] animate-pulse"></span>
+<span class="font-label text-[10px] tracking-[0.2em] font-bold text-secondary uppercase">Local Vault Active</span>
+</div>
+<span class="material-symbols-outlined text-[#f3ffca]">security</span>
+</div>
+</header>
+<!-- Main Viewfinder Area -->
+<main class="relative flex-1 w-full bg-surface-container-lowest overflow-hidden flex flex-col">
+<!-- Live Camera Feed Simulation -->
+<div class="absolute inset-0 z-0">
+<img alt="Camera Feed" class="w-full h-full object-cover opacity-60 grayscale-[0.2]" data-alt="First-person perspective of a modern industrial gym interior with concrete walls, high ceilings, and premium fitness equipment in low dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSUr97jif9Ytc29rzR-OcbIKaXWXj_KLCXIe05aTXoO62T3GAyOQZjiqjXdCP6xV07zPg0H5ljkgUaSX1pvejr1G5e7e_83tvCgunR-BqWT9dOn6BR4ozuLLGirQY4Jg0ZejdTHxi37onQCGLO2uDC0L_lgoAt8yidLD8Yn4hQb1hywokr-_Kk_kI5PpjqqJfpgddb8R0VsSeX3vIiTDfNIzAin6Zp00eCQiyFBOGqh3xEmmW4J4EFSsOtWNZNWrw3DDfcuW3NW-FD"/>
+<!-- Mirror Tech Overlay (Ghost Frame) -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40">
+<img alt="Ghost Overlay" class="w-[85%] h-[85%] object-contain mix-blend-screen grayscale brightness-150 contrast-125 border-2 border-primary/20" data-alt="Semi-transparent silhouette of an athletic man performing a perfect deadlift pose, glowing with a soft cyan edge light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHbVdtmVgRi3MuT7gdCeP-1uaP689Uy6A39vtd-Vavo4IIk9QEZieGkDuGKyONkKNFYn9WlSPV4xvjvSX9HyUWJdE5tJZOpn_bI8f_Tm-b5Kiw6NaKuuve0JWcypiyYDbKwMrQGBvUuKG0G2i2ASFfmiqipaE-znhlG-44iaDQkfysuPGm6BYQ19pVl_A-ZpF9HhcApm5wlXGqCNbwem8-ZzxKdNdp8A7NLirwf7fufmJ6cfRmYCwm7cRNR_51Ig40MODOMxLBWOLc"/>
+</div>
+<!-- Viewfinder Grid Lines -->
+<div class="absolute inset-0 z-20 viewfinder-grid pointer-events-none"></div>
+<!-- Corner Accents -->
+<div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-primary pointer-events-none"></div>
+<div class="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-primary pointer-events-none"></div>
+<div class="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-primary pointer-events-none"></div>
+<div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-primary pointer-events-none"></div>
+</div>
+<!-- Tech Overlay HUD -->
+<div class="relative z-30 flex flex-col justify-between h-full p-6">
+<!-- Top Controls -->
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-4">
+<button class="w-14 h-14 bg-surface-container-high/80 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-primary/10 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">flash_on</span>
+</button>
+<button class="w-14 h-14 bg-surface-container-high/80 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-primary/10 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">flip_camera_ios</span>
+</button>
+</div>
+<div class="bg-surface-container-high/80 backdrop-blur-xl rounded-2xl p-4 border border-primary/10 max-w-[140px]">
+<div class="font-headline text-[10px] uppercase tracking-widest text-primary/60 mb-2">Ref Position</div>
+<div class="font-headline font-bold text-primary text-lg leading-tight">LATERAL RAISE</div>
+<div class="mt-2 h-1 w-full bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- Side Opacity Slider (Mirror Tech Control) -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4">
+<div class="h-64 w-12 bg-surface-container-high/60 backdrop-blur-md rounded-full relative flex flex-col items-center p-2 border border-white/5">
+<div class="font-label text-[10px] text-primary font-bold rotate-90 absolute -left-12 top-12 whitespace-nowrap">MIRROR OPACITY</div>
+<!-- Slider Track -->
+<div class="w-1.5 h-full bg-surface-container-highest rounded-full flex flex-col justify-end overflow-hidden">
+<div class="w-full h-1/2 bg-primary"></div>
+</div>
+<!-- Thumb Indicator -->
+<div class="absolute bottom-[48%] left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-surface shadow-[0_0_15px_rgba(243,255,202,0.4)] flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-xs font-black">drag_handle</span>
+</div>
+</div>
+<span class="font-headline font-bold text-primary text-sm tracking-tighter">50%</span>
+</div>
+<!-- Bottom Control Cluster -->
+<div class="flex flex-col items-center gap-8 pb-10">
+<!-- Gallery Alert -->
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high/40 backdrop-blur-md rounded-full border border-white/5">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">photo_library</span>
+<span class="font-body text-xs text-on-surface-variant tracking-wide">Photos are saved to <span class="text-on-surface font-bold">local gallery only</span></span>
+</div>
+<div class="flex items-center justify-center gap-12">
+<!-- Timer/Settings -->
+<button class="w-16 h-16 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">timer</span>
+</button>
+<!-- Shutter Button -->
+<button class="relative w-24 h-24 flex items-center justify-center active:scale-95 transition-all duration-200">
+<div class="absolute inset-0 rounded-full border-[3px] border-primary opacity-30"></div>
+<div class="absolute inset-2 rounded-full border-2 border-primary/50"></div>
+<div class="w-16 h-16 rounded-full kinetic-gradient shadow-[0_0_30px_rgba(243,255,202,0.3)]"></div>
+<div class="absolute inset-0 rounded-full animate-[ping_3s_infinite] border border-primary/20 pointer-events-none"></div>
+</button>
+<!-- Reference Toggle -->
+<button class="w-16 h-16 rounded-full flex items-center justify-center bg-surface-container-low text-primary border border-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Suppressed for Focused Camera Task -->
+<!-- Applying Tonal Shift Separation Logic to Footer Area -->
+<footer class="h-1 bg-surface-container-low w-full"></footer>
+<!-- CSS for special elements not easily handled by Tailwind -->
+<style>
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .font-body { font-family: 'Manrope', sans-serif; }
+        .font-label { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Shutter ring pulse animation */
+        @keyframes ping-slow {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .shutter-glow {
+            animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+    </style>
+</body></html>
